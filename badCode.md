@@ -8,8 +8,8 @@
    - [主色调] (#主色调)
    
   
-### 不要再面向对象开发了
-现在移动开发机会是零门槛。注意机会是零门槛，不是没门槛。如果你是个移动开发者如果看到这个样的代码会怎么样？
+### 不要再面向字典开发了
+现在移动开发几乎是零门槛。注意机会几乎是零门槛，不是没门槛。如果你是个移动开发者如果看到这个样的代码会怎么样？
 ```OC
             _idea = [responseObject objectForKey:@"idea"];
             _isOwner = [[responseObject objectForKey:@"is_owner"] boolValue];
