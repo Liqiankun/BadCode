@@ -127,5 +127,41 @@
         return cell;
     }
 ```
-这是一个哥们的cell，我想告诉你这个TableView里边有10个自定义的cell，你可以想象.......此处省略10000字。
+这是一个哥们的cell，我想告诉你这个TableView里边有10个自定义的cell，你可以想象.......此处省略10000字。用MVC模式之后
+```OC
+      if (indexPath.row == 0) {
+        UserMainInfoCell *cell = [[UserMainInfoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellOne"];
+        cell.userInfoModel = self.userInfoModel;
+        return cell;
+    }else if (indexPath.row == 1)
+    {
+        UserIntroductionCell *cell = [[UserIntroductionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellTwo"];
+        cell.introFrameModel = self.userIntroModel;
+        return cell;
+    }else if(indexPath.row == 2){
+        UserFriendsCell *cell = [[UserFriendsCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier:@"cellThree"];
+        cell.friendModel = self.userFriendModel;
+        return cell;
+    }else if (indexPath.row == 3){
+        UserIdeaCell *cell = [[UserIdeaCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellFour"];
+        cell.ideaModel = self.userIdeaModel;
+        return  cell;
+    }else if (indexPath.row == 4){
+        UserBackgroundCell *cell = [[UserBackgroundCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellFive"];
+        cell.backgroundModel = self.userBackModel;
+        return cell;
+    }else if (indexPath.row == 5){
+        UserWorkingCell *cell = [[UserWorkingCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellSix"];
+        cell.workModel = self.userWorkingModel;
+        return cell;
+    }else if (indexPath.row == 6){
+        UserEducationCell *cell = [[UserEducationCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellSevent"];
+        cell.educationModel = self.userEducationModel;
+        return cell;
+    }else if (indexPath.row == 7){
+        UserSkillCell *cell = [[UserSkillCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellEight"];
+        cell.skillModel = self.userSkillModel;
+        return cell;
+    }
+```
 
