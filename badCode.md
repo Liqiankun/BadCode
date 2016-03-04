@@ -3,6 +3,7 @@
 ### 目录
    - [不要再面向对象开发了] (#不要再面向对象开发了)
    - [谁的工作谁干] (#谁的工作谁干)
+   - [第三方库入侵太深] (#第三方库入侵太深)
   
 ### 不要再面向对象开发了
 现在移动开发机会是零门槛。注意机会是零门槛，不是没门槛。如果你是个移动开发者如果看到这个样的代码会怎么样？
@@ -137,3 +138,23 @@
 ```
 ViewController你把Model给我，剩下的事情和你没关系。
 
+### 第三方库入侵太深
+我举一个例子AFNetworking，这个可能是每一个开发者网络请求的标配，机会每一个页面都要用到。这样就造成了AFNetworking入侵太深，最近AFNetworking升级到了3.0，很多类改了方法也改了，你一看自己的项目300个地方用到了AFNetworking怎么办。全局替换？？像这样的库最好进行二次封装。
+```OC
+   -(void)GET:(NSString*)url withParameters:(NSDictionary*)parameters success:(void (^)(NSDictionary *data))success failure:(void (^)(NSError *error,AFHTTPRequestOperation *operation))failure
+{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (success)
+        {
+            success((NSDictionary*)responseObject);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (failure)
+        {
+            failure(error,operation);
+        }
+    }];
+}
+```
+封装之后使用，如果AFNetworking更新了你就改此处即可。
