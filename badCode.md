@@ -179,5 +179,5 @@ ViewController你把Model给我，剩下的事情和你没关系。
 ```OC
    self.view.backgroundColor = DLBackgroundColor;
    titleLabel.backgroundColor = DLBackgroundColor;
-``
+```
 
