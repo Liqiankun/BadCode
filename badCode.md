@@ -14,7 +14,7 @@
             NSDictionary *owner = [_idea objectForKey:@"owner"];
             NSURL *coverUrl = [NSURL URLWithString:[_idea valueForKey:@"medium_cover_url"]];
 ```
-面向字典开始真的很痛苦，面试模型开发吧。提高代码的可读性和易维护性。
+面向字典开始真的很痛苦，面试模型开发吧。提高代码的可读性和易维护性。在字典转模型的时可以使用明杰老师的[MJExtension](https://github.com/CoderMJLee/MJExtension)会大大加快效率。
 
 ### 谁的工作谁干
 不要有一万行代码都写在ViewController里，谁的工作谁干。搞个MVC。
