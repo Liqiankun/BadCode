@@ -4,6 +4,9 @@
    - [不要再面向对象开发了] (#不要再面向对象开发了)
    - [谁的工作谁干] (#谁的工作谁干)
    - [第三方库入侵太深] (#第三方库入侵太深)
+   - [用原生控件] (#用原生控件)
+   - [App的主色调] (#App的主色调)
+   
   
 ### 不要再面向对象开发了
 现在移动开发机会是零门槛。注意机会是零门槛，不是没门槛。如果你是个移动开发者如果看到这个样的代码会怎么样？
@@ -158,3 +161,23 @@ ViewController你把Model给我，剩下的事情和你没关系。
 }
 ```
 封装之后使用，如果AFNetworking更新了你就改此处即可。
+
+### 用原生控件
+如果没有特殊需求，尽量用苹果提高的原生控件。有个哥们的TabBarViewController不知道为啥要用。
+```OC
+   @interface RDVTabBarController : UIViewController <RDVTabBarDelegate>
+```
+没有特殊需求不要用第三方的东西，而且实现的功能是一样的。
+
+### App的主色调开发
+开发之前确立好App的主色调不要每次用到颜色就用这个东西
+```OC
+   self.view.backgroundColor = [UIColor colorWithHexString:@"878787"];
+   titleLabel.backgroundColor = [UIColor colorWithRed:0.95f green:0.48f blue:0.00f alpha:1.00f];
+```
+确定颜色之后定义成宏。
+```OC
+   self.view.backgroundColor = DLBackgroundColor;
+   titleLabel.backgroundColor = DLBackgroundColor;
+``
+
